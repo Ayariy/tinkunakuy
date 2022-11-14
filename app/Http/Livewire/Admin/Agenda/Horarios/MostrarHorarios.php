@@ -59,6 +59,19 @@ class MostrarHorarios extends Component
         $day =  str_replace(['@1@', '@2@', '@3@', '@4@', '@5@', '@6@', '@0@'], [$lun, $mar, $mie, $jue, $vie, $sab, $dom], $dayFormat);
         return $day;
     }
+
+    public function replaceSearchDay($daySearch)
+    {
+        $lun = $this->getNameDay(1);
+        $mar = $this->getNameDay(2);
+        $mie = $this->getNameDay(3);
+        $jue = $this->getNameDay(4);
+        $vie = $this->getNameDay(5);
+        $sab = $this->getNameDay(6);
+        $dom = $this->getNameDay(0);
+        $day =  str_replace( [$lun, $mar, $mie, $jue, $vie, $sab, $dom],['@1@', '@2@', '@3@', '@4@', '@5@', '@6@', '@0@'], $daySearch);
+        return $day;
+    }
     public function getNameDay($numDay)
     {
         return Carbon::create(Carbon::getDays()[$numDay])->locale(app()->getLocale())->dayName;
@@ -71,7 +84,7 @@ class MostrarHorarios extends Component
         // $cargos = Cargo::paginate($this->perPage);
 
         $horarios =  Horario::when($this->search, function ($query) {
-            $query->where('horario', 'like', '%' . $this->search . '%');
+            $query->where('horario', 'like', '%' . $this->replaceSearchDay($this->search) . '%');
         })->paginate($this->perPage);
         $horarios->withPath('/admin/agenda/horarios');
         return view('livewire.admin.agenda.horarios.mostrar-horarios', ['horarios' => $horarios]);

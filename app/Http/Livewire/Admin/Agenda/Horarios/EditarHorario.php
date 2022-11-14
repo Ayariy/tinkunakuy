@@ -18,7 +18,7 @@ class EditarHorario extends Component
     public $timeFin;
     public array $horarioArray;
 
-    public function mount(Horario $horario)
+    public function mount($horario)
     {
         $this->idHorario = $horario->idHorario;
         $this->day = 1;
@@ -71,22 +71,22 @@ class EditarHorario extends Component
     {
         return Carbon::create(Carbon::getDays()[$numDay])->locale(app()->getLocale())->dayName;
     }
-    // public function editarHorario()
-    // {
+    public function editarHorario()
+    {
 
-    //     $this->horario =  implode(", ", $this->horarioArray);
-    //     $datos = $this->validate(['horario' => 'required|string|max:200']);
-    //     try {
-    //         Horario::create([
-    //             'horario' => $datos['horario'],
-    //         ]);
-    //         session()->flash('mensaje', __('messages.save_correctly'));
-    //         return redirect()->to('admin/agenda/horarios');
-    //     } catch (\Throwable $th) {
-    //         $this->dispatchBrowserEvent('showToastError');
-    //     }
-    //     // dd($datos);
-    // }
+        $this->horario =  implode(", ", $this->horarioArray);
+        $datos = $this->validate(['horario' => 'required|string|max:200']);
+        try{
+            $horarioFind =  Horario::find($this->idHorario);
+            $horarioFind->horario = $datos['horario'];
+            $horarioFind->save();
+            session()->flash('mensaje', __('messages.edit_correctly'));
+            return redirect()->to('admin/agenda/horarios');
+        }catch (\Throwable $th) {
+            $this->dispatchBrowserEvent('showToastError');
+        }
+        // dd($datos);
+    }
     public function render()
     {
         return view('livewire.admin.agenda.horarios.editar-horario');

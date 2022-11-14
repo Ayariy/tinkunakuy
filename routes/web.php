@@ -41,7 +41,7 @@ $subdomainRoutes = function () {
     // agenda paginas adicionales como tipo, modulo y horario
     Route::get("admin/agenda/horarios", [AgendaController::class, 'horarios'])->name('admin.agenda.horarios');
     Route::get("admin/agenda/horarios/create", [AgendaController::class, 'horarios'])->name('admin.agenda.horarios.create');
-    Route::get("admin/agenda/horarios/edit", [AgendaController::class, 'horarios'])->name('admin.agenda.horarios.edit');
+    Route::get("admin/agenda/horarios/edit/{horario}", [AgendaController::class, 'horarios'])->name('admin.agenda.horarios.edit');
     Route::get("admin/agenda/modulos", [AgendaController::class, 'modulos'])->name('admin.agenda.modulos');
     Route::get("admin/agenda/tipos", [AgendaController::class, 'tipos'])->name('admin.agenda.tipos');
     // correspondiente a agenda

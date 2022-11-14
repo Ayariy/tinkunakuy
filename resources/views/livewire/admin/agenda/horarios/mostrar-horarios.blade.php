@@ -33,6 +33,12 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
+    @if ($horarios->isEmpty())
+    <div class="text-center">
+        <p>{{ __('messages.empty') }}</p>
+    </div>
+    @else
+    
     <div class="table-responsive" wire:loading.remove>
         <table id="cargos" class="table mt-2 sortable">
             <thead class="thead-dark">
@@ -76,9 +82,10 @@
 
                     </td> --}}
                     <td class="d-flex flex-column flex-sm-row align-items-center justify-content-around">
-                        <x-adminlte-button class="align-self-stretch mb-2 mb-sm-0" type="submit" theme="primary"
-                            label="{{__('messages.editar')}}" icon="fas fa-edit" data-toggle="modal"
-                            data-target="#modalHorario{{$horario->idHorario}}" />
+
+                            <a href="{{route('admin.agenda.horarios.edit',['horario'=>$horario],false)}}" class="btn btn-primary align-self-stretch mb-2 mb-sm-0">
+                                <i class="fas fa-edit"></i>
+                                Editar</a>
 
                         <x-adminlte-button class="align-self-stretch"
                             wire:click="$emit('alertDelete', {{$horario->idHorario}})" type="submit" theme="danger"
@@ -86,8 +93,6 @@
                     </td>
 
                 </tr>
-                @livewire('admin.agenda.horarios.editar-horario', ['horario' => $horario],
-                key('item-'.$horario->idHorario))
                 @endforeach
 
             </tbody>
@@ -95,7 +100,7 @@
         {{$horarios->links('pagination::bootstrap-5')}}
 
     </div>
-
+    @endif
     @push('scripts')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

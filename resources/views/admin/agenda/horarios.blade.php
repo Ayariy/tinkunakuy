@@ -49,13 +49,13 @@
         ],
         [
         'nombreRuta' => __('messages.editar'),
-        'href' => route('admin.agenda.horarios.edit',[],false)
+        'href' => route('admin.agenda.horarios.edit',['horario'=>$horario],false)
         ],
         ]
         @endphp
         <x-admin.header title="{{__('messages.editar')}}" :rutaHeader="$rutaHeader" />
     </x-slot:contenido_header>
-    {{-- @livewire('admin.agenda.horarios.editar-horario') --}}
+    @livewire('admin.agenda.horarios.editar-horario',['horario'=>$horario])
 
     @else
     {{-- MUESTRA eventos --}}

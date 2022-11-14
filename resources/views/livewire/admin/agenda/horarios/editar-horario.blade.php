@@ -1,5 +1,5 @@
-<x-adminlte-modal wire:ignore.self id="modalHorario{{$idHorario}}" title="{{__('messages.editar')}}" theme="primary"
-    icon="fas fa-clock fa-lg " size='lg' scrollable>
+{{-- <x-adminlte-modal wire:ignore.self id="modalHorario{{$idHorario}}" title="{{__('messages.editar')}}" theme="primary"
+    icon="fas fa-clock fa-lg " size='lg' scrollable> --}}
     <div wire:ignore.self id="modalHorario{{$idHorario}}">
 
 
@@ -115,9 +115,9 @@
                 <span class="sr-only">Loading...</span>
             </div>
             <x-adminlte-button wire:loading.remove wire:target="crearHorario" type="submit" theme="primary"
-                label="{{__('messages.save')}}" icon="fas fa-save" />
+                label="{{__('messages.editar')}}" icon="fas fa-edit" />
         </form>
 
     </div>
 
-</x-adminlte-modal>
+{{-- </x-adminlte-modal> --}}
