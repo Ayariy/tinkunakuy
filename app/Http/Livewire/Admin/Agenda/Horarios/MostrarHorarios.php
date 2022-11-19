@@ -14,7 +14,7 @@ class MostrarHorarios extends Component
 
     public $perPage;
     public $search;
-    protected $listeners =  ["updateParent", "deleteHorario", 'updateM'];
+    protected $listeners =  ["updateParent", "deleteHorario"];
 
     public function mount()
     {
