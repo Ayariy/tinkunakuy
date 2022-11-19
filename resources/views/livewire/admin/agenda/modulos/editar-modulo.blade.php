@@ -54,7 +54,12 @@
 
             <x-adminlte-button class="mr-auto" theme="danger" label="{{__('messages.cancel')}}"
                 icon="fas fa-window-close" data-dismiss="modal" />
-            <x-adminlte-button theme="primary" type="submit" label="{{__('messages.editar')}}" icon="fas fa-save" />
+
+                <div class="spinner-border" role="status" wire:loading wire:target="editarModulo">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <x-adminlte-button wire:loading.remove wire:target="editarModulo" theme="primary" type="submit"
+                    label="{{ __('messages.editar') }}" icon="fas fa-save" />
         </x-slot>
 
 
