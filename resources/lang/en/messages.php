@@ -62,6 +62,11 @@ return [
     'time_init'                     => 'Start time',
     'time_fin'                      => 'End time',
     'add'                           => 'Add',
+    'time'                          => 'Hours',
+    'precio'                        => 'Price',
+    'lugar'                         => 'Direction',
+    'finit'                         => 'Start Date',
+    'ffin'                          => 'Due Date',
 
     //Institucion
     "title"                         => 'Title',

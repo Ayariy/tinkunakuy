@@ -61,6 +61,11 @@ return [
     'time_init'                     => 'Kallariy pacha',
     'time_fin'                      => 'Tukiriy pacha',
     'add'                           => 'Churana',
+    'time'                          => 'Pachakuna',
+    'precio'                        => 'Chani',
+    'lugar'                         => 'Kuska',
+    'finit'                         => 'Kallarina pacha',
+    'ffin'                          => 'Tukurina pacha',
 
 
     //Institucion

@@ -61,6 +61,11 @@ return [
     'time_init'                     => 'Hora de inicio',
     'time_fin'                      => 'Hora finalización',
     'add'                           => 'Agregar',
+    'time'                          => 'Horas',
+    'precio'                        => 'Precio',
+    'lugar'                         => 'Lugar',
+    'finit'                         => 'Fecha de iniciación',
+    'ffin'                          => 'Fecha de culminación',
 
     //Institucion
     "title"                         => 'Título',
